@@ -1,0 +1,27 @@
+# !!!!  DO NOT CHANGE THIS FILE !!!
+# This is just a template and needed for the code to work.
+#
+# Instead, copy it to any of the pre-defined locations or
+# to a location of your choice (you will need to use -c
+# pointing to that file in this case) and override the
+# pre-defined parameters that way.
+#
+# This defines defaults plus some empty values to ensure
+# They are available, which is necessary for some parts
+# of the code.
+
+# Overridden by SPOTIPY_CLIENT_ID environment variable
+client_id: ''
+# Overridden by SPOTIPY_CLIENT_SECRET environment variable
+client_secret: ''
+# Overridden by SPOTIPY_REDIRECT_URI environment variable
+redirect_url: 'http://localhost/'
+# Overridden by PS_DATA_DIR environment variable
+data_dir: '~/.playlist_sync'
+
+#sources:
+#  src1:
+#    username: ''
+#destinations:
+#  dst1:
+#    username: ''

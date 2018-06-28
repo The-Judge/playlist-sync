@@ -5,7 +5,8 @@ name = "pypi"
 
 [packages]
 'ruamel.yaml' = "*"
-spotipy = "*"
+spotipy = {git = "https://github.com/plamere/spotipy.git", editable=true}
+yamlreader = "*"
 
 [requires]
 python_version = "3.6"
