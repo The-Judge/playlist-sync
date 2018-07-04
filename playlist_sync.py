@@ -31,7 +31,7 @@ def myArgparse():
                       epilog='Upstream project: https://github.com/The-Judge/playlist-sync')
     parser.add_argument('-c', '--config', action='store', metavar='/path/to/configfile', required=False, help='Path to '
                         'a configfile to use. If this is skipped, it is searched for at the predefined locations. If '
-                        'none is found, internal defaults are used.')
+                        'none is found, internal defaults are used.', default=None)
     read_write_group = parser.add_mutually_exclusive_group()
     read_write_group.add_argument('-r', '--read-only', action='store_true', required=False, help='If defined, only '
                                   'sources are read without writing to the destinations afterwards.', default=False)
@@ -98,10 +98,13 @@ def load_config(configfile=None):
 
     # Load user config
     if configfile is not None:
-        if not Path(configfile).is_file():
-            print('WARNING: Config file {} was not found. Continue with default settings.'.format(configfile))
+        if isinstance(configfile, str):
+            if not Path(configfile).is_file():
+                print('WARNING: Config file {} was not found. Continue with default settings.'.format(configfile))
+            else:
+                yaml = yaml_load(configfile, yaml)
         else:
-            yaml = yaml_load(configfile, yaml)
+            raise ValueError('configfile needs to be of type str')
     return yaml
 
 
