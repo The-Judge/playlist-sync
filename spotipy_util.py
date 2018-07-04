@@ -100,16 +100,18 @@ def prompt_for_user_token(username, scope=None, client_id=None, client_secret=No
         print(f'''
             #####################################################
             
-            Login type is: {direction.upper()}
+            Need to authenticate the Spotify user:
+                {username}
+            for login type: {direction.upper()}
             
             Login type SOURCE means, that we need to
             authenticate for an account which will be used to
-            collect collections and items from (READ only).
+            read collections and items from (READ only).
             
             Login type DESTINATION means, that we need to
             authenticate for an account which will be used to
             copy collections and items from the SOURCE
-            accounts to (READ/WRITE).
+            accounts TO (READ/WRITE).
             
             We will accuire the following permissions:
             ''')
@@ -118,10 +120,6 @@ def prompt_for_user_token(username, scope=None, client_id=None, client_secret=No
             print(f'               {s}')
 
         print(f'''
-            Need to authenticate the user:
-            
-            {username}
-             
             Please login to Spotify as this user in the web
             browser which just should have been opened.
 
@@ -137,8 +135,9 @@ def prompt_for_user_token(username, scope=None, client_id=None, client_secret=No
             
             !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             Please make sure to close the browser window after
-            your have copied the URL to make sure the next
-            instances are launched in a new private session.
+            you have copied the URL (and before pasting it to
+            this window) to make sure the next instances are
+            launched in a new private session.
             !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         ''')
